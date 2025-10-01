@@ -1,44 +1,27 @@
 import numpy as np
 
 def sigmoid(x):
-    # Our activation function f(x) = 1 / (1 + exp(-x))
-    return 1 / (1 + np.exp(-x))
+    """Activation: f(x) = 1 / (1 + exp(-x))."""
+    return 1.0 / (1.0 + np.exp(-x))
 
 class Neuron:
     def __init__(self, weights, bias):
-        self.weights = weights
-        self.bias = bias
+        self.weights = np.asarray(weights, dtype=float)
+        self.bias = float(bias)
 
     def feedforward(self, inputs):
-        # Weights inputs, add bias then use the activation function
-        total = np.dot(self.weights, inputs) + self.bias
+        total = float(np.dot(self.weights, np.asarray(inputs, dtype=float)) + self.bias)
         return sigmoid(total)
-    
-weights = np.array([0, 1]) # w1 = 0, w2 = 1
-bias = 4
-
-neuron = Neuron(weights, bias)
-
-x = np.array([2, 3])
-
-print(neuron.feedforward(x))
 
 class OurNeuralNetwork:
-    '''
-    A neural network with:
-     - 2 inputs
-     - a hidden layer with 2 neurons (h1, h2)
-     - an output layer with 1 neuron (o1)
-    
-    Each neuron has the same weights and bias:
-        - w = [0,1]
-        - b = 0
-    '''
+    """
+    2-input -> [h1,h2] -> o1
+    All neurons use sigmoid. This mirrors the structure in the blog before training.
+    h1,h2,o1 start with weights=[0,1], bias=0 to match the example.
+    """
     def __init__(self):
-        weights = np.array([0, 1])
-        bias = 0
-
-        # The Neuron class here is from the previous code block
+        weights = np.array([0.0, 1.0])
+        bias = 0.0
         self.h1 = Neuron(weights, bias)
         self.h2 = Neuron(weights, bias)
         self.o1 = Neuron(weights, bias)
@@ -46,11 +29,17 @@ class OurNeuralNetwork:
     def feedforward(self, x):
         out_h1 = self.h1.feedforward(x)
         out_h2 = self.h2.feedforward(x)
-
-        # The inputs for o1 are the outputs from h1 and h2
+        # o1 takes [out_h1, out_h2] as its inputs
         out_o1 = self.o1.feedforward(np.array([out_h1, out_h2]))
+        return float(out_o1)
 
-        return out_o1
-network = OurNeuralNetwork()
-x = np.array([2, 3])
-print(network.feedforward(x)) # 0.7216325609518421
+if __name__ == "__main__":
+    # Demo values from the tutorial
+    weights = np.array([0.0, 1.0])
+    bias = 4.0
+    neuron = Neuron(weights, bias)
+    x = np.array([2.0, 3.0])
+    print("Single neuron:", neuron.feedforward(x))  # ≈ 0.99909
+
+    net = OurNeuralNetwork()
+    print("2–2–1 net:", net.feedforward(x))  # ≈ 0.72163256

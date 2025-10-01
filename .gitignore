@@ -31,3 +31,6 @@ site/
 # OS-specific
 .DS_Store
 Thumbs.db
+
+# remove egg status
+*.egg-info/
