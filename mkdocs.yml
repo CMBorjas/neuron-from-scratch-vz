@@ -1,0 +1,13 @@
+site_name: Neuron from Scratch (Victor Zhou – Reproduction)
+theme:
+  name: material
+nav:
+  - Overview: index.md
+  - How it Works: how-it-works.md
+  - Results: results.md
+repo_url: https://github.com/<your-username>/neuron-from-scratch-vz
+edit_uri: ""
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true

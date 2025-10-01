@@ -1,0 +1,25 @@
+neuron-from-scratch-vz/
+├─ src/neuron_vz/
+│  ├─ __init__.py
+│  └─ network.py            # 2–2–1 NN, sigmoid, deriv_sigmoid, MSE, SGD (per-sample)
+├─ tests/
+│  ├─ test_feedforward.py   # reproduces numeric examples
+│  ├─ test_training.py      # loss decreases; predictions ≈ blog values
+│  └─ conftest.py
+├─ notebooks/
+│  └─ 01_reproduce_vz_post.ipynb  # single plot + quick predictions
+├─ data/
+│  └─ tiny_people.py        # Alice/Bob/Charlie/Diana; Emily/Frank
+├─ docs/
+│  ├─ index.md              # overview + how to run + link to the blog
+│  ├─ how-it-works.md       # neuron → network → loss → backprop → SGD
+│  └─ results.md            # loss curve + prediction table
+├─ .github/workflows/ci.yml
+├─ .devcontainer/devcontainer.json
+├─ .vscode/{settings.json,launch.json}
+├─ .pre-commit-config.yaml
+├─ pyproject.toml
+├─ mkdocs.yml
+├─ README.md
+├─ LICENSE (MIT)
+└─ .gitignore

@@ -1,0 +1,30 @@
+repos:
+  # Ruff: linter + formatter (fast, single tool of record)
+  # Docs: https://docs.astral.sh/ruff/integrations/
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        name: ruff-check
+        args: [--fix]   # auto-fix simple issues
+      - id: ruff-format
+
+  # MyPy: static type checking (runs in its own venv under pre-commit)
+  # Docs: https://github.com/pre-commit/mirrors-mypy
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.2
+    hooks:
+      - id: mypy
+        additional_dependencies: []
+        args:
+          - --strict
+          - --pretty
+          - --ignore-missing-imports
+
+  # Basic hygiene
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
