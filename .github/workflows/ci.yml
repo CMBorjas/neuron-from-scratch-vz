@@ -1,8 +1,3 @@
-# Make sure the folder exists (ok if it already does)
-mkdir .github\workflows -Force | Out-Null
-
-# Overwrite ci.yml with a clean workflow
-@'
 name: CI
 
 on:
@@ -36,4 +31,3 @@ jobs:
 
       - name: Run tests
         run: pytest -q
-'@ | Set-Content .github\workflows\ci.yml -Encoding UTF8
