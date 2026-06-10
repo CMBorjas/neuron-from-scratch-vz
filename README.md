@@ -1,5 +1,9 @@
 # Neuron from Scratch (Victor Zhou – Reproduction)
 
+## Live demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-fuchsia.svg)](https://cmborjas.github.io/ResumeWebsite/projects/neuron-from-scratch)
+
 A faithful, **from-scratch** implementation of the 2–2–1 neural network described by Victor Zhou — with **tests, types, CI, docs**, and a minimal notebook so recruiters can run and skim quickly.
 
 [![CI](https://github.com/CMBorjas/neuron-from-scratch-vz/actions/workflows/ci.yml/badge.svg)](https://github.com/<user>/neuron-from-scratch-vz/actions/workflows/ci.yml)
